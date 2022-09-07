@@ -3,7 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
-const jobOffer = require("./Models/jobOffer");
+const jobOffer = require("./models/jobOffer");
 
 const mongoDBenv = process.env.DATABASE_URL;
 const port = process.env.PORT || 5000;
