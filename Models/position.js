@@ -1,1 +1,0 @@
-//TODO:Modelo del job board para Piero
