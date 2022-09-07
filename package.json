@@ -1,0 +1,24 @@
+{
+  "name": "portal-empleo-ow",
+  "version": "0.0.1",
+  "description": "Api para un portal de empleo ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "portal-empleo",
+    "opensource"
+  ],
+  "author": "Andres2310, pieropr2k, Dev-Juniorr",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "eslint": "^8.23.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.5",
+    "prettier": "^2.7.1"
+  }
+}
