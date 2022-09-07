@@ -55,15 +55,11 @@ const JOBoffers = mongoose.Schema(
         type: String
       },
       isnew: {
-        Boolean,
+        type: Boolean,
       },
       featured: {
-        Boolean,
-      },
-      contract: {
-        type: String,
-        required: true,
-      },
+        type: Boolean,
+      }
     },
     company_logo: {
       type: String,
