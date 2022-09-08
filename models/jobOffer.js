@@ -3,9 +3,10 @@
 //TODO:Modelo del job board para Sebastian
 
 const mongoose = require("mongoose");
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const JOBoffers = mongoose.Schema({
-  IdOffer: {
+  idOffer: {
     type: Number
   },
   created_at: {
@@ -66,4 +67,5 @@ const JOBoffers = mongoose.Schema({
   },
 });
 
+JOBoffers.plugin(AutoIncrement, {inc_field: 'idOffer'});
 module.exports = mongoose.model("JOBoffers", JOBoffers);
