@@ -52,9 +52,13 @@ app.get("/jobs/:id", async (req, res) => {
 })
 
 app.post("/jobs", async (req, res) => {
-  const job = await new jobOffer(req.body)
-  const savedJob = await job.save()
-  res.status(200).json(savedJob);
+  try {
+    const job = await new jobOffer(req.body)
+    const savedJob = await job.save()
+    res.status(200).json(savedJob);
+  } catch (error) {
+    res.status(500).json({ "error": error.message });
+  }
 })
 
 app.listen(port, () => console.log(`Perfect Port ${port}`));
