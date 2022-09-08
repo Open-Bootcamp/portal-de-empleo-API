@@ -5,7 +5,7 @@
 const mongoose = require("mongoose");
 
 const JOBoffers = mongoose.Schema({
-  id: {
+  IdOffer: {
     type: Number
   },
   created_at: {
