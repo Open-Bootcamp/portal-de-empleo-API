@@ -42,6 +42,15 @@ app.get("/jobs", async (req, res) => {
   }
 })
 
+app.get("/jobs/:id", async (req, res) => {
+  try {
+    const job = await jobOffer.findById(req.params.id);
+    res.status(200).json(job);
+  } catch (error) {
+    res.status(500).json({ "error": error.message });
+  }
+})
+
 app.post("/jobs", async (req, res) => {
   const job = await new jobOffer(req.body)
   const savedJob = await job.save()
