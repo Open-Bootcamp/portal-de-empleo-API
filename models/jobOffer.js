@@ -26,11 +26,11 @@ const JOBoffers = mongoose.Schema({
     type: String,
     required: true,
   },
-  isNew: {
-    Boolean,
+  isRecent: {
+    type: Boolean,
   },
   featured: {
-    Boolean,
+    type: Boolean,
   },
   position: {
     type: String,
