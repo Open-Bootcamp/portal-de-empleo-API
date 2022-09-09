@@ -4,41 +4,22 @@ const route = express.Router();
 const {
   getAllJobs,
   getJob,
-  postJobs,
+  postJob,
+  putJob,
+  patchJob,
+  deleteJob,
 } = require("../controllers/controllerJobs");
-const jobOffer = require("../models/jobOffer");
 
 route.get("/jobs", getAllJobs);
 
 route.get("/jobs/:idOffer", getJob);
 
-route.post("/jobs", postJobs);
+route.post("/jobs", postJob);
 
-route.put("/job/:id", async (req, res) => {
-  try {
-    const updateJob = await jobOffer.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      {
-        new: true,
-      }
-    );
-    res.status(200).json(updateJob);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+route.put("/jobs/:id", putJob);
 
-route.delete("/job/:id", async (req, res) => {
-  try {
-    const deleteJob = await jobOffer.findById(req.params.id);
-    await deleteJob.remove();
-    res.status(200).json({
-      mensaje: "Delete Successfull!",
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+route.patch("/jobs/:id/:attrtochange", patchJob);
+
+route.delete("/jobs/:id", deleteJob);
 
 module.exports = route;

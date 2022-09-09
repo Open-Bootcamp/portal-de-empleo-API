@@ -18,7 +18,7 @@ const getJob = async (req, res) => {
   }
 };
 
-const postJobs = async (req, res) => {
+const postJob = async (req, res) => {
   try {
     const job = await new jobOffer(req.body);
     const savedJob = await job.save();
@@ -28,8 +28,54 @@ const postJobs = async (req, res) => {
   }
 };
 
+const putJob = async (req, res) => {
+  try {
+    const updateJob = await jobOffer.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(updateJob);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const patchJob = async (req, res) => {
+  const {id, attrtochange} = req.params;
+  try {
+    const updateJob = await jobOffer.findByIdAndUpdate(
+      id,
+      { [attrtochange]: req.body },
+      {
+        new: true,
+      }
+    );
+    res.status(200).json(updateJob);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const deleteJob = async (req, res) => {
+  try {
+    const deleteJob = await jobOffer.findById(req.params.id);
+    await deleteJob.remove();
+    res.status(200).json({
+      mensaje: "Delete Successfull!",
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   getAllJobs,
   getJob,
-  postJobs,
+  postJob,
+  putJob,
+  patchJob,
+  deleteJob
 };
