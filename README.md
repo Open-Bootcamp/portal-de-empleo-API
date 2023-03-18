@@ -53,5 +53,5 @@ Este proyecto fue realizado con la participación de los integrantes de OpenBoot
 ### OpenBootcamp Community
 
 - GitHub - [@Andres2310](https://github.com/Andres2310)
-- GitHub - [@Dev-Juniorr](https://github.com/Dev-Juniorr)
+- GitHub - [@codewithsebas](https://github.com/codewithsebas)
 - GitHub - [@pieropr2k](https://github.com/pieropr2k)
